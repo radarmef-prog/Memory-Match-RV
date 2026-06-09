@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match - URU Edition</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <main id="menu-screen" class="screen">
+            <header class="menu-header">
+                <h1>Juego de Memoria</h1>
+                <p class="subtitle">Hecho por: Rubén Adarme y Victor M. Aguillón</p>
+            </header>
+
+            <section class="setup-form">
+                <div class="form-group">
+                    <label for="mode-select">Modo de Juego:</label>
+                    <select id="mode-select">
+                        <option value="single">Solitario</option>
+                        <option value="pvp">Versus (PvP)</option>
+                        <option value="free">Modo Libre</option>
+                    </select>
+                </div>
+
+                <div id="players-input-container" class="form-group">
+                    <div class="player-field">
+                        <label for="player1-name">Jugador 1:</label>
+                        <input type="text" id="player1-name" placeholder="Nombre" value="Jugador 1">
+                    </div>
+                    <div class="player-field hidden" id="player2-field">
+                        <label for="player2-name">Jugador 2:</label>
+                        <input type="text" id="player2-name" placeholder="Nombre" value="Jugador 2">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="theme-select">Temática Visual:</label>
+                    <select id="theme-select">
+                        <option value="saints">Santos Católicos</option>
+                        <option value="worldcup">Jugadores del Mundial</option>
+                        <option value="professors">Profesores de la URU</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty-select">Dificultad:</label>
+                    <select id="difficulty-select">
+                        <option value="16">Mantequillita(4x4 - 16 Cartas)</option>
+                        <option value="36"> Mas o menos(6x6 - 36 Cartas)</option>
+                        <option value="64"> Mamarro (8x8 - 64 Cartas)</option>
+                    </select>
+                </div>
+
+                <button id="start-game-btn" class="btn btn-primary">¡Inicio!</button>
+            </section>
+        </main>
+
+        <main id="game-screen" class="screen hidden">
+            <header class="game-status-bar">
+                <div class="status-item" id="turn-indicator-box">
+                    <span>Turno de:</span>
+                    <strong id="current-player-display">-</strong>
+                </div>
+                <div class="status-item" id="timer-status-box">
+                    <span>Tiempo:</span>
+                    <strong id="timer-display">00:00</strong>
+                </div>
+                <div class="status-item">
+                    <span>Movimientos:</span>
+                    <strong id="moves-display">0</strong>
+                </div>
+                <div class="status-item">
+                    <span>Parejas:</span>
+                    <strong id="pairs-display">0</strong>
+                </div>
+            </header>
+
+            <section id="game-board" class="board-grid"></section>
+
+            <footer class="game-controls">
+                <button id="restart-btn" class="btn btn-secondary">Reiniciar</button>
+                <button id="exit-btn" class="btn btn-danger">Salir al Menú</button>
+            </footer>
+        </main>
+
+        <div id="achievement-toast" class="toast hidden">
+            <div class="toast-icon">🏆</div>
+            <div class="toast-body">
+                <h4 id="toast-title">¡Logro Desbloqueado!</h4>
+                <p id="toast-desc">Descripción del logro obtenido.</p>
+            </div>
+        </div>
+        <div id="game-over-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2>🎉 ¡Partida Completada! 🎉</h2>
+                <div id="game-results">
+                    </div>
+                <h3>Logros Obtenidos en esta partida:</h3>
+                <ul id="unlocked-achievements-list">
+                    </ul>
+                <div class="modal-actions">
+                    <button id="modal-restart-btn" class="btn btn-secondary">Jugar de nuevo</button>
+                    <button id="modal-close-btn" class="btn btn-primary">Volver al Menú</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/themes.js"></script>
+    <script src="js/states.js"></script>
+    
+    <script src="js/timer.js"></script>
+    <script src="js/achievements.js"></script>
+    
+    <script src="js/ui.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/modes.js"></script>
+    <script src="js/game.js"></script>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
