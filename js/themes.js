@@ -1,4 +1,4 @@
-onst ThemeCatalog = {
+const ThemeCatalog = {
   saints: {
     name: 'Santos Católicos',
     className: 'theme-saints',
