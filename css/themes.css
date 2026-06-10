@@ -1,0 +1,46 @@
+
+
+body.theme-saints {
+  background: linear-gradient(rgba(247, 242, 234, 0.84), rgba(235, 227, 212, 0.82)),
+    url('../assets/images/santos.jpg') center/cover fixed no-repeat;
+  --bg: linear-gradient(180deg, #f7f2ea 0%, #fbf6ee 45%, #ebe8d4 100%);
+  --panel: rgba(255, 252, 245, 0.92);
+  --text: #2f2920;
+  --muted: #7b6a53;
+  --accent: #d6b680;
+  --accent-strong: #a57f55;
+  --card-front: #f6f1e8;
+  --card-back: #fffdf7;
+  --card-text: #3c3225;
+  --danger: #a8550d;
+}
+
+body.theme-worldcup {
+  background: linear-gradient(rgba(7, 54, 26, 0.82), rgba(218, 232, 217, 0.72)),
+    url('../assets/images/selecciones.webp') center/cover fixed no-repeat;
+  --bg: linear-gradient(180deg, #07361a 0%, #11522d 35%, #dae8d9 100%);
+  --panel: rgba(5, 37, 19, 0.88);
+  --text: #f7f7f7;
+  --muted: #cde2c8;
+  --accent: #fcca3f;
+  --accent-strong: #2e7ef5;
+  --card-front: #103b1d;
+  --card-back: #f6f8fb;
+  --card-text: #111827;
+  --danger: #dc2626;
+}
+
+body.theme-professors {
+  background: linear-gradient(rgba(5, 11, 26, 0.76), rgba(22, 38, 64, 0.72)),
+    url('../assets/images/uru.jpg') center/cover fixed no-repeat;
+  --bg: linear-gradient(180deg, #050b1a 0%, #0a1128 45%, #0e1c3a 100%);
+  --panel: rgba(8, 18, 40, 0.88);
+  --text: #e6f0ff;
+  --muted: #b0c7e9;
+  --accent: #4d8cff;
+  --accent-strong: #6ea8ff;
+  --card-front: #0a1228;
+  --card-back: #eef3ff;
+  --card-text: #0f172a;
+  --danger: #ff6b6b;
+}
