@@ -2,7 +2,7 @@ const ThemeCatalog = {
   saints: {
     name: 'Santos Católicos',
     className: 'theme-saints',
-    imageFolder: 'assets/themes/santos',
+    imageFolder: 'assets/themes/saints',
     cards: [
       '1.JPG',
       '2.JPG',
