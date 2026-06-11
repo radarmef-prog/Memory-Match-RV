@@ -22,13 +22,13 @@ body.theme-saints {
   --form-input-border: rgba(148, 163, 184, 0.45);
 }
 
-/* Overrides specific to the Saints theme to improve contrast */
+
 body.theme-saints .card-front,
 body.theme-saints .card-back {
   background: var(--text);
-  /* use the same dark brown used for text */
+  
   color: var(--panel);
-  /* light text to contrast */
+  
 }
 
 body.theme-saints .card-back img {
@@ -39,7 +39,7 @@ body.theme-saints .card-back img {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Make fallback symbol less heavy and more centered */
+
 body.theme-saints .card-back.card-back-fallback {
   background: var(--text);
   color: var(--panel);
@@ -47,12 +47,12 @@ body.theme-saints .card-back.card-back-fallback {
   font-weight: 700;
 }
 
-/* Make top status bar use the same color as the cards (for better contrast on Saints theme) */
+
 body.theme-saints .game-status-bar {
   background: var(--text);
-  /* same dark brown used for card background */
+  
   color: var(--panel);
-  /* light panel color for text */
+  
   border-color: rgba(0, 0, 0, 0.08);
   padding: 18px;
   border-radius: 22px;
@@ -67,7 +67,7 @@ body.theme-saints .game-status-bar .status-item strong {
   color: var(--panel);
 }
 
-/* Ensure buttons inside modal and controls remain visible */
+
 body.theme-saints .btn-secondary {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);

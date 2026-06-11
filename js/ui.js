@@ -83,7 +83,7 @@ UI.renderBoard = function (cards) {
       };
       cardBack.appendChild(image);
     } else {
-      // Si la carta no utiliza imágenes, se muestra el emoji/texto directamente.
+      
       cardBack.textContent = card.content;
     }
 
