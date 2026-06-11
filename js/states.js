@@ -1,0 +1,21 @@
+const AppState = {
+  mode: 'single',
+  theme: 'saints',
+  difficulty: 16,
+  playerNames: ['Jugador 1', 'Jugador 2'],
+  currentPlayer: 0,
+  scores: [0, 0],
+  moves: 0,
+  pairsFound: 0,
+  totalPairs: 8,
+  timerSeconds: 0,
+  timerStarted: false,
+  timerInterval: null,
+  boardLocked: false,
+  firstCard: null,
+  secondCard: null,
+  cards: [],
+  achievementsUnlocked: new Set(),
+  currentStreak: 0,
+  gameFinished: false
+};
