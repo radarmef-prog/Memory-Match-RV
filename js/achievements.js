@@ -1,7 +1,7 @@
 const AchievementDefinitions = {
   firstPair: {
     id: 'firstPair',
-    title: 'Primer paso',
+    title: 'Poco a poco se logra',
     description: 'Encontraste el primer par de la partida.',
     condition: () => AppState.pairsFound === 1
   },
