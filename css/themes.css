@@ -77,7 +77,7 @@ body.theme-saints .btn-secondary {
 body.theme-worldcup {
   background-color: #07361a;
   background-image: linear-gradient(rgba(7, 54, 26, 0.82), rgba(218, 232, 217, 0.72)),
-    url('../assets/images/players.webp');
+    url('../assets/images/players.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
