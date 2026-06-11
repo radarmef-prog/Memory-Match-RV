@@ -39,7 +39,7 @@ const ThemeCatalog = {
     ]
   },
   worldcup: {
-    name: 'Selecciones del Mundial',
+    name: 'Jugadores del Mundial',
     className: 'theme-worldcup',
     imageFolder: 'assets/themes/players',
     cards: [
@@ -78,7 +78,7 @@ const ThemeCatalog = {
     ]
   },
   professors: {
-    name: 'Profesores URU',
+    name: 'Profesores de la URU',
     className: 'theme-professors',
     imageFolder: 'assets/themes/uru',
     cards: [
