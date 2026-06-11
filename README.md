@@ -1,42 +1,112 @@
-# Juego de Memoria - Hecho por Ruben D. Adarme y Victor M. Aguillón
+# 🎮 Memoriza a los Cracks. 
 
-## Nombre original y descripción
-- Nombre: Juego de Memoria 
-- Descripción: Juego de memoria web estático (HTML/CSS/JS). Escoge una temática visual, voltea cartas y encuentra parejas. Incluye modos solitario y Versus, múltiples dificultades y logros desbloqueables.
+**Juego de memoria web estático** creado con HTML, CSS y JavaScript. El objetivo es encontrar parejas de cartas usando temáticas visuales atractivas, con modos solitario y versus, varias dificultades y logros desbloqueables.
 
-## Integrantes y división del trabajo
-- Rubén Adarme — Diseño UI/CSS, logica del juego, temas visuales, assets y maquetado 
-- Victor M. Aguillón — Lógica del juego, estado, modos y logros 
+---
 
+## 🚀 Descripción
+- Escoge una temática visual.
+- Voltea cartas y encuentra parejas.
+- Juega en modo `Solitario`, `Versus (PvP)` o `Modo Libre`.
+- Elige dificultad 4x4, 6x6 o 8x8.
+- Desbloquea logros según tu rendimiento.
 
-## Temáticas implementadas
-- Santos Católicos (`saints`) — imágenes en `assets/themes/saints`
-- Selecciones del Mundial (`worldcup`) — imágenes en `assets/themes/players`
-- Profesores URU (`professors`) — imágenes en `assets/themes/uru`
+---
 
-## Logros implementados y cómo se desbloquean
-- **Poco a poco se logra** (`firstPair`): desbloqueado cuando `pairsFound === 1` (primer par encontrado).
-- **Enrachao** (`hotStreak`): desbloqueado cuando `currentStreak >= 3` (3 pares seguidos sin fallar).
-- **Cortita y al pie** (`firstTry`): desbloqueado si encuentras un par en el primer intento (`moves === 1 && pairsFound === 1`).
-- **Despacio cerebrito** (`flash`): completar modo Fácil (`difficulty === 16`) en <= 30s (modo `single`).
-- **Velocista** (`velocista`): completar Medio (`difficulty === 36`) en <= 90s (modo `single`).
-- **LOCURAAAAAAA** (`perfection`): completar la partida sin fallos (`pairsFound === totalPairs && moves === totalPairs`).
-- **Disculpame pues...** (`proplayer`): superar la dificultad mayor (8x8, `difficulty === 64`).
-- **BAJALE DOS TRYHARD** (`tryhard`): promedio rápido: tiempo total / totalPairs < 6s.
+## 👥 Equipo
+- **Rubén Adarme** — Diseño UI/CSS, lógica de juego, temas visuales, assets.
+- **Victor M. Aguillón** — Etiquetado, lógica del juego, estado, modos y logros.
 
-(Estas condiciones se encuentran en `js/achievements.js`.)
+---
 
-## Capturas de pantalla
-Añade tus capturas en `assets/screenshots/` y nómbralas como `screen1.png`, `screen2.png`, etc. Aquí hay marcadores para incluirlas en este README:
+## 🎨 Temáticas implementadas
+| Tema | Clave | Carpeta de imágenes |
+|---|---|---|
+| Santos Católicos | `saints` | `assets/themes/saints` |
+| Jugadores del Mundial | `worldcup` | `assets/themes/players` |
+| Profesores URU | `professors` | `assets/themes/uru` |
 
-- Pantalla principal:
+---
 
-![Pantalla principal](assets/screenshots/screen1.jng)
+## 🏆 Logros y condiciones
+- **Poco a poco se logra** (`firstPair`): primer par encontrado.
+- **Enrachao** (`hotStreak`): 3 pares seguidos sin fallar.
+- **Cortita y al pie** (`firstTry`): primer intento y primer par.
+- **Despacio cerebrito** (`flash`): completo Fácil (16 cartas) en <= 30s.
+- **Velocista** (`velocista`): completo Medio (36 cartas) en <= 90s.
+- **LOCURAAAAAAA** (`perfection`): completas todas las parejas sin errores.
+- **Disculpame pues...** (`proplayer`): superas 8x8 (64 cartas).
+- **BAJALE DOS TRYHARD** (`tryhard`): promedio de tiempo < 6s por pareja.
 
-- Tablero en juego:
+> Las condiciones de logro se evalúan en `js/achievements.js`.
 
-![Tablero en juego](assets/screenshots/screen2.jng)
+---
 
-- Modal de fin de partida:
+## 🖼️ Capturas de pantalla por temática
 
-![Modal fin de partida](assets/screenshots/screen3.jng)
+### Santos Católicos
+- Pantalla principal
+
+  ![Santos Católicos - Principal](assets/screenshots/saintsmain.jpg.png)
+
+- Tablero en juego
+
+  ![Santos Católicos - Tablero](assets/screenshots/saintsboard.jpg.png)
+
+- Fin de partida
+
+  ![Santos Católicos - Final](assets/screenshots/saintsfinal.jpg.png)
+
+---
+
+### Jugadores del Mundial
+- Pantalla principal
+
+  ![Jugadores del Mundial - Principal](assets/screenshots/playersmain.jpg.png)
+
+- Tablero en juego
+
+  ![Jugadores del Mundial - Tablero](assets/screenshots/playersboard.jpg.png)
+
+- Fin de partida
+
+  ![Jugadores del Mundial - Final](assets/screenshots/playersfinal.jpg.png)
+
+---
+
+### Profesores URU
+- Pantalla principal
+
+  ![Profesores URU - Principal](assets/screenshots/urumain.jpg.png)
+
+- Tablero en juego
+
+  ![Profesores URU - Tablero](assets/screenshots/uruboard.jpg.png)
+
+- Fin de partida
+
+  ![Profesores URU - Final](assets/screenshots/urufinal.jpg.png)
+
+---
+
+## ⚙️ Cómo ejecutar
+1. Abrir `index.html` directamente en el navegador.
+
+O usar un servidor local:
+
+```bash
+python -m http.server 8000
+```
+
+Luego abrir:
+
+```text
+http://localhost:8000
+```
+
+---
+
+## 📌 Notas finales
+- Para agregar un nuevo tema: coloca imágenes en `assets/themes/<nombre>` y añade el tema en `js/themes.js`.
+- Para agregar logros: define la condición en `js/achievements.js`.
+- El proyecto no requiere dependencias ni compilación.
