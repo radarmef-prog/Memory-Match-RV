@@ -105,8 +105,3 @@ http://localhost:8000
 ```
 
 ---
-
-## 📌 Notas finales
-- Para agregar un nuevo tema: coloca imágenes en `assets/themes/<nombre>` y añade el tema en `js/themes.js`.
-- Para agregar logros: define la condición en `js/achievements.js`.
-- El proyecto no requiere dependencias ni compilación.
