@@ -6,6 +6,7 @@ const UI = {
   movesDisplay: document.getElementById('moves-display'),
   pairsDisplay: document.getElementById('pairs-display'),
   currentPlayerDisplay: document.getElementById('current-player-display'),
+  themeDisplay: document.getElementById('theme-display'),
   turnIndicatorBox: document.getElementById('turn-indicator-box'),
   achievementToast: document.getElementById('achievement-toast'),
   toastTitle: document.getElementById('toast-title'),
@@ -75,6 +76,11 @@ UI.renderBoard = function (cards) {
       image.src = encodeURI(`${theme.imageFolder}/${card.content}`);
       image.alt = `Carta de ${theme.name}`;
       image.loading = 'lazy';
+      image.onerror = () => {
+        image.remove();
+        cardBack.textContent = '?';
+        cardBack.classList.add('card-back-fallback');
+      };
       cardBack.appendChild(image);
     } else {
       // Si la carta no utiliza imágenes, se muestra el emoji/texto directamente.
@@ -102,6 +108,8 @@ UI.updateTimer = function (value) {
 UI.updateStatus = function () {
   this.movesDisplay.textContent = AppState.moves;
   this.pairsDisplay.textContent = `${AppState.pairsFound}/${AppState.totalPairs}`;
+  const theme = ThemeCatalog[AppState.theme] || ThemeCatalog.saints;
+  this.themeDisplay.textContent = theme.name;
 
   const timerBox = document.getElementById('timer-status-box');
   if (AppState.mode === 'single') {
