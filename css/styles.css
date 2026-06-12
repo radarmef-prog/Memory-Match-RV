@@ -407,6 +407,58 @@ ul {
   padding-left: 18px;
 }
 
+/* PvP turn indicators: soft colored shadow/circle on left (player1) or right (player2) */
+.pvp-indicator {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.pvp-indicator.left {
+  left: 0;
+  background: radial-gradient(circle at 18% 50%, rgba(244,63,94,0.36) 0%, rgba(244,63,94,0.18) 24%, transparent 50%);
+  transform: translateX(-6px);
+}
+.pvp-indicator.right {
+  right: 0;
+  background: radial-gradient(circle at 82% 50%, rgba(59,130,246,0.36) 0%, rgba(59,130,246,0.18) 24%, transparent 50%);
+  transform: translateX(6px);
+}
+.pvp-indicator.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Floating player name labels inside the indicators */
+.pvp-indicator .pvp-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 60%;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.35);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0.98;
+}
+.pvp-indicator.left .pvp-label {
+  left: 6%;
+  justify-self: start;
+}
+.pvp-indicator.right .pvp-label {
+  right: 6%;
+  justify-self: end;
+}
+
 @media (max-width: 720px) {
   .game-status-bar {
     grid-template-columns: 1fr;

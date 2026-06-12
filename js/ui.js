@@ -17,6 +17,10 @@ const UI = {
   player2Field: document.getElementById('player2-field'),
   appContainer: document.querySelector('.app-container')
 };
+UI.pvpLeftIndicator = document.getElementById('pvp-left-indicator');
+UI.pvpRightIndicator = document.getElementById('pvp-right-indicator');
+UI.pvpLeftLabel = document.getElementById('pvp-left-label');
+UI.pvpRightLabel = document.getElementById('pvp-right-label');
 
 UI.showMenu = function () {
   this.menuScreen.classList.remove('hidden');
@@ -24,6 +28,11 @@ UI.showMenu = function () {
   this.gameOverModal.classList.add('hidden');
   this.boardElement.innerHTML = '';
   this.applyTheme(AppState.theme);
+  // hide PvP indicators when not in game/menu
+  if (this.pvpLeftIndicator) this.pvpLeftIndicator.classList.add('hidden');
+  if (this.pvpRightIndicator) this.pvpRightIndicator.classList.add('hidden');
+  if (this.pvpLeftLabel) this.pvpLeftLabel.textContent = '';
+  if (this.pvpRightLabel) this.pvpRightLabel.textContent = '';
 };
 
 UI.showGameScreen = function () {
@@ -31,6 +40,8 @@ UI.showGameScreen = function () {
   this.gameScreen.classList.remove('hidden');
   this.gameOverModal.classList.add('hidden');
   this.applyTheme(AppState.theme);
+  // ensure indicators reflect current player when entering game
+  this.updateTurnIndicator();
 };
 
 UI.applyTheme = function (themeKey) {
@@ -120,16 +131,48 @@ UI.updateStatus = function () {
     this.turnIndicatorBox.classList.remove('hidden');
     this.currentPlayerDisplay.textContent = AppState.playerNames[AppState.currentPlayer];
     timerBox.classList.add('hidden');
+    // ensure pvp indicators are updated
+    this.updateTurnIndicator();
   } else {
     this.turnIndicatorBox.classList.add('hidden');
     timerBox.classList.add('hidden');
+    if (this.pvpLeftIndicator) this.pvpLeftIndicator.classList.add('hidden');
+    if (this.pvpRightIndicator) this.pvpRightIndicator.classList.add('hidden');
   }
 };
 
 UI.updateTurnIndicator = function () {
-  if (AppState.mode !== 'pvp') return;
+  // Only show/update indicators when actually in PvP mode and game screen is visible
+  if (AppState.mode !== 'pvp' || this.gameScreen.classList.contains('hidden')) {
+    // ensure hidden when not in PvP match
+    if (this.pvpLeftIndicator) this.pvpLeftIndicator.classList.add('hidden');
+    if (this.pvpRightIndicator) this.pvpRightIndicator.classList.add('hidden');
+    if (this.pvpLeftLabel) this.pvpLeftLabel.textContent = '';
+    if (this.pvpRightLabel) this.pvpRightLabel.textContent = '';
+    return;
+  }
+
   this.currentPlayerDisplay.textContent = AppState.playerNames[AppState.currentPlayer];
   this.turnIndicatorBox.classList.toggle('active-turn', AppState.mode === 'pvp');
+
+  // Set labels
+  if (this.pvpLeftLabel) this.pvpLeftLabel.textContent = AppState.playerNames[0] || '';
+  if (this.pvpRightLabel) this.pvpRightLabel.textContent = AppState.playerNames[1] || '';
+
+  // PvP visual overlay: left for player 0, right for player 1
+  if (this.pvpLeftIndicator && this.pvpRightIndicator) {
+    if (AppState.currentPlayer === 0) {
+      this.pvpLeftIndicator.classList.add('visible');
+      this.pvpLeftIndicator.classList.remove('hidden');
+      this.pvpRightIndicator.classList.remove('visible');
+      this.pvpRightIndicator.classList.add('hidden');
+    } else {
+      this.pvpRightIndicator.classList.add('visible');
+      this.pvpRightIndicator.classList.remove('hidden');
+      this.pvpLeftIndicator.classList.remove('visible');
+      this.pvpLeftIndicator.classList.add('hidden');
+    }
+  }
 };
 
 UI.showAchievementToast = function (title, description) {
